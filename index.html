@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">n
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Via | IT Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f7fb;--surface:#fff;--ink:#14213d;--muted:#56637a;--line:#d9e1ee;
+  --accent:#1d4ed8;--on:#fff;--ok:#15803d;--warn:#b45309;
+  --d:'Sora','Segoe UI',Arial,sans-serif;--b:'Public Sans','Segoe UI',Arial,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#121c30;--ink:#e6ecf8;--muted:#9aa9c4;--line:#243350;--accent:#6c9bff;--on:#08111f;--ok:#4ade80;--warn:#fbbf24}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#121c30;--ink:#e6ecf8;--muted:#9aa9c4;--line:#243350;--accent:#6c9bff;--on:#08111f;--ok:#4ade80;--warn:#fbbf24}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--b);transition:background .3s,color .3s}
+h1,h2,h3{font-family:var(--d);margin:0;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+section{padding:4.5rem 0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:.6rem}
+.sub{color:var(--muted);max-width:60ch;margin:0 0 2rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 1.3rem var(--d);text-decoration:none}
+nav{display:flex;gap:1.4rem}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover,nav a.on{color:var(--accent)}
+.ib{background:none;border:1px solid var(--line);color:var(--ink);width:40px;height:40px;border-radius:10px;cursor:pointer;font-size:1.05rem}
+.mb{display:none}
+@media(max-width:720px){
+  .mb{display:inline-block}
+  nav{position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.25rem 1.4rem;border-bottom:1px solid var(--line);display:none}
+  nav.open{display:flex}
+  section{padding:3.2rem 0}
+}
+/* Hero */
+.hero{padding:4.5rem 0 3rem}
+.hg{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center}
+@media(max-width:860px){.hg{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.2rem);font-weight:800;letter-spacing:-.025em}
+.hero .lead{color:var(--muted);max-width:52ch;margin:1.2rem 0 1.8rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:10px;font:600 1rem var(--b);text-decoration:none;border:2px solid var(--accent);cursor:pointer;transition:transform .2s}
+.btn.f{background:var(--accent);color:var(--on)}
+.btn.l{background:none;color:var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+/* Panel status */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem;box-shadow:0 12px 30px -18px rgba(20,33,61,.35)}
+.ph{display:flex;justify-content:space-between;align-items:center;font:600 .95rem var(--d);margin-bottom:1rem}
+.live{color:var(--ok);font:600 .9rem var(--b)}
+.live::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ok);margin-right:.4rem;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.tk{display:flex;justify-content:space-between;gap:.8rem;padding:.65rem 0;border-top:1px solid var(--line);font-size:.97rem;animation:in .5s}
+@keyframes in{from{opacity:0;transform:translateY(-6px)}}
+.st{font-weight:600;white-space:nowrap}
+.st.ok{color:var(--ok)}.st.wip{color:var(--warn)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line);text-align:center}
+.stats b{display:block;font:800 1.7rem var(--d)}
+.stats span{font-size:.85rem;color:var(--muted)}
+/* Skills */
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.tab{padding:.55rem 1.1rem;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:500 .96rem var(--b)}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--on);border-color:var(--accent)}
+.sk{display:flex;flex-wrap:wrap;gap:.7rem}
+.sk span{padding:.55rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;font-weight:500}
+/* Kasus */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.3rem}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
+.case h3{font-size:1.15rem;margin-bottom:.9rem}
+.case dl{margin:0}
+.case dt{font-weight:600;color:var(--accent);margin-top:.7rem}
+.case dd{margin:0;color:var(--muted)}
+.res{display:inline-block;margin-top:1rem;padding:.3rem .8rem;border-radius:99px;background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok);font-weight:600;font-size:.93rem}
+/* Sertifikat & pengalaman */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.cert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1rem 1.1rem}
+.cert b{display:block;font-family:var(--d)}
+.cert span{color:var(--muted);font-size:.93rem}
+.tl{border-left:2px solid var(--line);padding-left:1.7rem;margin-left:.5rem}
+.tl article{position:relative;margin-bottom:2rem}
+.tl article::before{content:"";position:absolute;left:calc(-1.7rem - 7px);top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl time{color:var(--muted);font-size:.93rem}
+.tl h3{font-size:1.15rem;margin:.15rem 0 .35rem}
+.tl p{margin:0;color:var(--muted);max-width:62ch}
+/* Kontak */
+form{display:grid;gap:1rem;max-width:560px}
+label{font-weight:500;display:grid;gap:.35rem}
+input,textarea{font:inherit;padding:.8rem 1rem;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+textarea{min-height:120px;resize:vertical}
+.msg{min-height:1.5rem;font-weight:500}.msg.err{color:#d6453d}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--muted);text-align:center;font-size:.95rem}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+@media print{header,form,.btns,footer{display:none}.rv{opacity:1;transform:none}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#top">Via.</a>
+  <nav id="nav" aria-label="Navigasi utama">
+    <a href="#keahlian">Keahlian</a><a href="#kasus">Studi kasus</a><a href="#sertifikat">Sertifikat</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+  </nav>
+  <div style="display:flex;gap:.5rem">
+    <button class="ib" id="theme" aria-label="Ganti tema terang atau gelap">◐</button>
+    <button class="ib mb" id="menu" aria-label="Buka menu" aria-expanded="false">☰</button>
+  </div>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hg">
+  <div>
+    <h1>IT Support yang menyelesaikan masalah, bukan menambah pertanyaan.</h1>
+    <p class="lead">Saya Via, IT Support dengan pengalaman menangani perangkat, jaringan, dan akun pengguna. Saya terbiasa bekerja cepat di bawah tekanan dan menjelaskan solusi dengan bahasa yang mudah dipahami.</p>
+    <div class="btns">
+      <a class="btn f" href="#kontak">Hubungi saya</a>
+      <a class="btn l" href="#kasus">Lihat studi kasus</a>
+      <button class="btn l" id="print">Unduh CV (PDF)</button>
+    </div>
+  </div>
+  <div class="panel" aria-label="Contoh antrean tiket">
+    <div class="ph"><span>Antrean tiket</span><span class="live">Langsung</span></div>
+    <div id="tickets"></div>
+    <div class="stats">
+      <div><b data-n="3">0</b><span>tahun pengalaman</span></div>
+      <div><b data-n="1200">0</b><span>tiket ditangani</span></div>
+      <div><b data-n="96">0</b><span>% kepuasan</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="keahlian"><div class="wrap rv">
+  <h2>Keahlian</h2>
+  <p class="sub">Pilih kategori untuk melihat alat dan teknologi yang saya kuasai.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="sk" id="skills" role="tabpanel" aria-live="polite"></div>
+</div></section>
+
+<section id="kasus"><div class="wrap rv">
+  <h2>Studi kasus</h2>
+  <p class="sub">Contoh masalah nyata, langkah yang saya ambil, dan hasilnya.</p>
+  <div class="cases">
+    <article class="case"><h3>Jaringan kantor sering putus</h3><dl>
+      <dt>Masalah</dt><dd>Wi-Fi lantai 2 putus berkali-kali dan mengganggu 25 karyawan.</dd>
+      <dt>Tindakan</dt><dd>Memetakan sinyal, menemukan interferensi kanal, lalu memindahkan access point dan mengatur ulang kanal.</dd></dl>
+      <span class="res">Gangguan turun 90%</span></article>
+    <article class="case"><h3>Migrasi 30 laptop ke Windows 11</h3><dl>
+      <dt>Masalah</dt><dd>Laptop lama perlu diperbarui tanpa menghentikan pekerjaan tim.</dd>
+      <dt>Tindakan</dt><dd>Mencadangkan data, menyiapkan image standar, dan menjadwalkan pemasangan di luar jam kerja.</dd></dl>
+      <span class="res">Selesai 2 hari, tanpa data hilang</span></article>
+    <article class="case"><h3>Pengelolaan akun dan helpdesk</h3><dl>
+      <dt>Masalah</dt><dd>Reset kata sandi dan permintaan akses memakan waktu lama.</dd>
+      <dt>Tindakan</dt><dd>Membuat panduan mandiri dan template tiket supaya permintaan lebih lengkap.</dd></dl>
+      <span class="res">Waktu respons turun 35%</span></article>
+  </div>
+</div></section>
+
+<section id="sertifikat"><div class="wrap rv">
+  <h2>Sertifikat dan pendidikan</h2>
+  <p class="sub">Ganti dengan sertifikat milik Anda.</p>
+  <div class="certs">
+    <div class="cert"><b>CompTIA A+</b><span>2024</span></div>
+    <div class="cert"><b>Cisco CCNA</b><span>2025</span></div>
+    <div class="cert"><b>Microsoft 365 Fundamentals</b><span>2023</span></div>
+    <div class="cert"><b>S1 Teknik Informatika</b><span>Universitas Contoh, 2022</span></div>
+  </div>
+</div></section>
+
+<section id="pengalaman"><div class="wrap rv">
+  <h2>Pengalaman kerja</h2>
+  <div class="tl">
+    <article><time>2024 – sekarang</time><h3>IT Support, PT Maju Bersama</h3><p>Melayani 150+ pengguna, mengelola perangkat, akun, printer, dan jaringan, serta menyusun dokumentasi solusi.</p></article>
+    <article><time>2023 – 2024</time><h3>Helpdesk Staff, CV Digital Nusantara</h3><p>Menangani tiket harian lewat telepon dan chat dengan target penyelesaian di hari yang sama.</p></article>
+    <article><time>2022 – 2023</time><h3>Teknisi Magang, Toko Komputer Kita</h3><p>Merakit dan memperbaiki komputer, instal ulang sistem, dan membersihkan malware.</p></article>
+  </div>
+</div></section>
+
+<section id="kontak"><div class="wrap rv">
+  <h2>Mari berbicara</h2>
+  <p class="sub">Tertarik dengan profil saya? Kirim pesan dan saya balas secepatnya.</p>
+  <form id="form" novalidate>
+    <label>Nama<input id="n" autocomplete="name" required></label>
+    <label>Email<input id="e" type="email" autocomplete="email" required></label>
+    <label>Pesan<textarea id="m" required></textarea></label>
+    <button class="btn f" type="submit">Kirim pesan</button>
+    <div class="msg" id="msg" role="status"></div>
+  </form>
+</div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> Via. IT Support.</div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+
+// Antrean tiket bergerak
+const T=[["Printer lantai 3 tidak terdeteksi","ok","Selesai"],["Reset kata sandi email","ok","Selesai"],["VPN gagal tersambung","wip","Diproses"],["Laptop baru perlu disiapkan","wip","Diproses"],["Wi-Fi ruang rapat lambat","ok","Selesai"],["Akses folder bersama","ok","Selesai"]];
+const box=$('#tickets');let ti=0;
+function addT(){
+  const t=T[ti++%T.length],d=document.createElement('div');
+  d.className='tk';d.innerHTML=`<span>${t[0]}</span><span class="st ${t[1]}">${t[2]}</span>`;
+  box.prepend(d);while(box.children.length>4)box.lastChild.remove();
+}
+for(let i=0;i<4;i++)addT();
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(addT,2600);
+
+// Keahlian per kategori
+const S={
+ "Perangkat keras":["Rakit & upgrade PC","Diagnosis laptop","Printer & scanner","Instal ulang OS","Backup & recovery"],
+ "Jaringan":["TCP/IP, DNS, DHCP","Router & switch","Konfigurasi Wi-Fi","VPN","Troubleshooting jaringan"],
+ "Sistem & akun":["Windows 10/11","Active Directory","Microsoft 365","Google Workspace","Dasar Linux"],
+ "Layanan":["Helpdesk & tiket","Dokumentasi solusi","Komunikasi dengan pengguna","Manajemen prioritas"]};
+const tabs=$('#tabs'),sk=$('#skills');
+function show(k){
+  tabs.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.textContent===k));
+  sk.innerHTML=S[k].map(x=>`<span>${x}</span>`).join('');
+}
+Object.keys(S).forEach(k=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+show("Perangkat keras");
+
+// Muncul saat digulir & hitung angka
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target;
+  if(el.classList.contains('rv'))el.classList.add('in');
+  if(el.dataset.n){const max=+el.dataset.n,step=Math.max(1,Math.round(max/60));let n=0;
+    const id=setInterval(()=>{n=Math.min(max,n+step);el.textContent=n;if(n>=max)clearInterval(id)},20)}
+}),{threshold:.25});
+document.querySelectorAll('.rv,[data-n]').forEach(el=>io.observe(el));
+
+// Tema
+const root=document.documentElement;
+try{const t=localStorage.getItem('tema');if(t)root.dataset.theme=t}catch(e){}
+$('#theme').onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('tema',root.dataset.theme)}catch(e){}
+};
+
+// Menu & tautan aktif
+const nav=$('#nav'),mb=$('#menu');
+mb.onclick=()=>mb.setAttribute('aria-expanded',nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>{nav.classList.remove('open');mb.setAttribute('aria-expanded',false)});
+const so=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting)nav.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
+}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>so.observe(s));
+
+$('#print').onclick=()=>window.print();
+
+// Formulir (ganti alamat email Anda)
+const EMAIL="emailanda@contoh.com";
+$('#form').addEventListener('submit',ev=>{
+  ev.preventDefault();const m=$('#msg'),n=$('#n').value.trim(),e=$('#e').value.trim(),t=$('#m').value.trim();
+  if(!n||!/^\S+@\S+\.\S+$/.test(e)||!t){m.className='msg err';m.textContent='Isi nama, email yang valid, dan pesan terlebih dahulu.';return}
+  m.className='msg';m.textContent='Membuka aplikasi email Anda…';
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Pesan dari '+n)}&body=${encodeURIComponent(t+'\n\n'+n+' ('+e+')')}`;
+});
+$('#yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
 
